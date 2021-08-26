@@ -1,0 +1,85 @@
+MYSHELL/CASH
+Manual
+
+NAME
+		myshell / cash - Conor's bASH
+
+SYNOPSIS
+		myshell [command_string | file]
+
+DESCRIPTION
+		Cash is a command language interpreter that executes commands read from standard input or from a file.
+
+ARGUMENTS
+		If any arguments exist, the first argument is assumed to be the name of a file containing shell commands. Cash reads and executes commands from this file, then exits.
+
+INVOCATION
+		An interactive shell is started when no arguments are specified. A prompt is shown to the user, where commands can be entered and subsequently executed.
+
+USAGE
+		Start the interactive shell by running the program without any arguments. Enter commands into the prompt and they will be executed. 
+		Cash also supports tab auto-completion for files in the current directory.
+		For example if you want to print a text file called "info.txt" using the program cat,you can type cat into the prompt, enter the first character of the file - "i"
+		and press tab to auto-complete the rest of the filename.
+
+COMMANDS
+		Cash contains many built-in commands, upon user input, cash checks if one of these in-built commands has been entered. If so, the corresponding command is executed.
+		Otherwise cash searches any directories contained in the environment variable PATH for any matching binaries and executes them, passing any arguments given.
+
+		Here is a list of the in-built commands and their functions:
+
+		  cd              Change directory to the first argument. If the given directory does not exist, the user is notified.
+		                  Running cd with no arguments prints the current directory to standard output.
+		  clr             Clears the terminal screen.
+		  dir             Lists current directory's contents if no arguments are given
+		                  Otherwise if another directory is given as the first argument, that directory's contents will be listed instead.
+		  environ         Lists all current environment variables.
+		  echo            Echoes string given as an argument to standard output.
+		                  Supports printing of environment variables, for example, "echo $USER" prints the current logged-in username.
+		  help            Prints this manual to standard output using the "more" filter.
+		  pause           Pauses operation of the shell until the Enter key is pressed.
+		  quit            Quits the shell.
+
+ENVIRONMENT
+		Environment variables are variables whose value are set outside the program, this is usually built in to the operating system itself.
+		Environment variables are of the format KEY="value string", and commonly used environment variables are USER, PWD, and SHELL.
+		These store the information on the current logged-in user, current working directory and the current shell respectively.
+		In most shell's these can be called with the name of the environment variable preceded by a "$", for example $USER.
+
+I/O REDIRECTION
+		Not a feature of cash but a common feature in many other shells.
+		I/O stands for input/output and the redirection of this simply means instead of getting user input from standard input for example, you can get it from a file. 
+		Likewise with the redirection of output, anything that would normally be printed to standard output, you can redirect to be outputted to a file instead.
+
+		  < filename    redirect input from a file.
+		  > filename    redirect output to a file.
+		  >> filename   redirect output to a file, but instead append to the end of the given file.
+
+BACKGROUND AND FOREGROUND PROCCESSES
+		Not a feature of cash but a common feature in many other shells.
+		Foreground processes are processes of whose output are outputted to standard output and shown to the user.
+		Background processes are processes of whose output is NOT outputted to standard output or shown to the user, thus running in the background.
+		This is commonly done in most Unix shells by putting a "&" at the end of a command, signifying that you do not want the process to output to standard output and to run in the background instead.
+		
+		With foreground processes, the shell waits until the process has finished completion before giving the user back control.
+		But with background processes, the shell does not wait for the backgrounded process to finish completion and the user is given back control immediately.
+
+		Additionally, a program currently running in the foreground can be sent to the background by pressing the keys Control+Z.
+		This program can be brought back to the foreground by running the command "fg" in the shell.
+
+		  command &   run given command in the background.
+
+REFERENCES
+		GNU. 29 October 2020. readline(3) - Linux manual page - 8.1. [online] Available at: <https://man7.org/linux/man-pages/man3/readline.3.html> [Accessed 25 March 2021].
+		GNU. 29 October 2020. bash(1) - Linux manual page - 5.1. [online] Available at: <https://man7.org/linux/man-pages/man1/bash.1.html> [Accessed 25 March 2021].
+		Donal Fitzpatrick. 5 February 2021. Lab 4B: Building a Simple Shell. [online] Available at: <https://ca216.computing.dcu.ie/labs/lab4b/> [Accessed 25 March 2021].
+		Seacord, R., 2020. Effective C. No Starch Press. [Accessed 25 March 2021].
+		
+
+STATEMENT OF NON-PLAGIARISM
+		I hereby declare that all information in this assignment has been obtained and presented in
+		accordance with academic rules and ethical conduct and the work I am submitting in this
+		document, except where I have indicated, is my own work.
+			Student Number: 19425804
+			Student Name: Conor Joyce
+			Date: 25/03/2021
